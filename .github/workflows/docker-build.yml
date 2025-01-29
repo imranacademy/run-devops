@@ -1,4 +1,4 @@
-name: Build and Push Docker Image for .NET Core 8 MVC
+name: Build and Push Docker Image for .NET Core 8 MVC (ShoppingApp)
 
 on:
   push:
@@ -36,27 +36,27 @@ jobs:
         with:
           dotnet-version: '8.0'
 
-      # Restore dependencies (restore)
+      # Restore dependencies
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore Shopping.Client.csproj
 
       # Build the project
       - name: Build project
-        run: dotnet build --configuration Release
+        run: dotnet build Shopping.Client.csproj --configuration Release
 
       # Publish the app
       - name: Publish the app
-        run: dotnet publish --configuration Release --output ./publish
+        run: dotnet publish Shopping.Client.csproj --configuration Release --output ./publish
 
       # Build Docker image
       - name: Build Docker image
         run: |
-          docker build -t my-app-image ./publish
+          docker build -t mrdockerbabe/shoppingapp ./publish
 
-      # Log in to Docker Hub (for pushing the image)
+      # Log in to Docker Hub
       - name: Log in to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-      # Push Docker image to Docker Hub (or other registry)
+      # Push Docker image to Docker Hub
       - name: Push Docker image
-        run: docker push my-dockerhub-username/my-app-image:latest
+        run: docker push mrdockerbabe/shoppingapp:latest
