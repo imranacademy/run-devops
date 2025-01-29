@@ -38,15 +38,15 @@ jobs:
 
       # Restore dependencies
       - name: Restore dependencies
-        run: dotnet restore Shopping.Client.csproj
+        run: dotnet restore Shopping/Shopping.Client/Shopping.Client.csproj
 
       # Build the project
       - name: Build project
-        run: dotnet build Shopping.Client.csproj --configuration Release --output ./app/build
+        run: dotnet build Shopping/Shopping.Client/Shopping.Client.csproj --configuration Release --output ./app/build
 
       # Publish the app
       - name: Publish the app
-        run: dotnet publish Shopping.Client.csproj --configuration Release --output ./app/publish /p:UseAppHost=false
+        run: dotnet publish Shopping/Shopping.Client/Shopping.Client.csproj --configuration Release --output ./app/publish /p:UseAppHost=false
 
       # Build Docker image
       - name: Build Docker image
