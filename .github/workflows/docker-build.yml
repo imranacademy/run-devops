@@ -51,7 +51,7 @@ jobs:
       # Build Docker image
       - name: Build Docker image
         run: |
-          docker build -t mrdockerbabe/shoppingapp -f Dockerfile .
+          docker build -t mrdockerbabe/shoppingapp -f Shopping/Shopping.Client/Dockerfile .
 
       # Log in to Docker Hub
       - name: Log in to Docker Hub
