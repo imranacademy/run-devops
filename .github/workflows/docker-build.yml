@@ -42,16 +42,16 @@ jobs:
 
       # Build the project
       - name: Build project
-        run: dotnet build Shopping.Client.csproj --configuration Release
+        run: dotnet build Shopping.Client.csproj --configuration Release --output ./app/build
 
       # Publish the app
       - name: Publish the app
-        run: dotnet publish Shopping.Client.csproj --configuration Release --output ./publish
+        run: dotnet publish Shopping.Client.csproj --configuration Release --output ./app/publish /p:UseAppHost=false
 
       # Build Docker image
       - name: Build Docker image
         run: |
-          docker build -t mrdockerbabe/shoppingapp ./publish
+          docker build -t mrdockerbabe/shoppingapp -f Dockerfile .
 
       # Log in to Docker Hub
       - name: Log in to Docker Hub
