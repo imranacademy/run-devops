@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "kubernetes://schema/v1%40service": "file:///c%3A/Users/HP/source/repos/run-devops/k8s/mongo.yml"
+    }
+}
