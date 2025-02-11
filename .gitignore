@@ -485,3 +485,5 @@ $RECYCLE.BIN/
 
 # ignore command.txt
 aks/commands.txt
+# ignore .github
+.github
