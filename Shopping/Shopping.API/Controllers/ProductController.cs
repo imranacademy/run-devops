@@ -9,10 +9,10 @@ namespace Shopping.API.Controllers;
 [ApiController]
 public class ProductController : ControllerBase
 {
-    private readonly ProsuctContext _context;
+    private readonly ProductContext _context;
     private readonly ILogger<ProductController> _logger;
 
-    public ProductController(ProsuctContext context, ILogger<ProductController> logger)
+    public ProductController(ProductContext context, ILogger<ProductController> logger)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
